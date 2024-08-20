@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20240820131122) do
   create_table "vendor_sweets", force: :cascade do |t|
     t.integer "vendor_id"
     t.integer "sweet_id"
+    t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["sweet_id"], name: "index_vendor_sweets_on_sweet_id"

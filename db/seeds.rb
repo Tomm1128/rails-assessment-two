@@ -28,12 +28,26 @@ sweets = [
   "Peanut Butter Icecream Cake",
 ]
 
+comments = [
+  "Best seller",
+  "Customer favorite",
+  "Seasonal special",
+  "Limited edition",
+  "New addition",
+  "Top rated"
+]
+
+
 vendor_records = vendors.map { |vendor| Vendor.create!(name: vendor) }
 sweet_records = sweets.map { |sweet| Sweet.create!(name: sweet) }
 
 vendor_records.each do |vendor|
   assigned_sweets = sweet_records.sample(rand(1..sweets.size))
   assigned_sweets.each do |sweet|
-    VendorSweet.create!(vendor: vendor, sweet: sweet)
+    VendorSweet.create!(
+      vendor: vendor,
+      sweet: sweet,
+      comment: comments.sample # Randomly pick a comment
+    )
   end
 end
